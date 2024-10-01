@@ -1,0 +1,87 @@
+1) input: [23, 33, 200, 785]
+output:  30
+
+arr= [23, 33, 200, 785]
+uniq="",dup=""
+for(i of arr){
+    istr=String(i).split("").map(Number)
+    emp=[]
+    for(j of istr){
+        if(!emp.includes(j)){
+            emp.push(j)
+        }
+    }
+    // console.log(emp)
+    for(k of emp){
+        c=0
+        for(z of istr){
+            if(k==z){
+                c++
+            }
+        }
+        if(c==1){
+            uniq=uniq+k+""
+        }
+        else{
+            dup=dup+k+""
+        }
+    }
+}
+console.log(dup)
+
+   ANS:30
+
+2) input: [ 538, 111, 200, 652]
+output:   [ false, false, false, true]
+arr=[ 538, 111, 200, 652]
+emp=[]
+for(i of arr){
+    istr=String(i)
+    c=0
+    for(j=0;j<istr.length-1;j++){
+        if(istr[j+1]<istr[j]){
+            c++
+        }
+    }
+    emp.push(istr.length-1 ==c)
+}
+console.log(emp)
+  ANS:[ false, false, false, true ]
+
+
+3) WAP to print uniques and duplicates without using includes method
+input: 112
+output: 
+Uniques: 2
+Duplicates: 1
+
+arr="112"
+ uniques = [];duplicates = [];
+for (let i = 0; i < arr.length; i++) {
+    Duplicate = false;
+    for (let j = 0; j < uniques.length; j++) {
+        if (uniques[j] == arr[i]) {
+            Duplicate = true;
+            break;
+        }
+    }
+
+    if (Duplicate) {
+     x = false;
+        for (let k = 0; k < duplicates.length; k++) {
+            if (duplicates[k] == arr[i]) {
+                x = true;
+                break;
+            }
+        }
+        if (!x) {
+            duplicates.push(arr[i]);
+        }
+    } else {
+        uniques.push(arr[i]);
+    }
+}
+console.log("Uniques:", uniques.join(''));
+console.log("Duplicates:", duplicates.join(''));
+  ANS:  Uniques: 12
+Duplicates: 1
